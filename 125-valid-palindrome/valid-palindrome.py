@@ -4,7 +4,6 @@ class Solution:
         n = len(original)
         if n == 0:
             return True
-        # print(original)
         return self.helper(original, 0, n)
     
     def helper(self, s, i, n):
