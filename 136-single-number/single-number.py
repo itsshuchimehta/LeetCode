@@ -11,6 +11,5 @@ class Solution:
         
         Anskey = [k for k, v in hashArr.items() if v == 1]   
 
-        print(hashArr)
-
         return Anskey[0]
+
