@@ -1,9 +1,24 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        i, j = 0, 0
+        S = len(s)
+        T = len(t)
 
-        while i < len(s) and j < len(t):
-            if s[i] == t[j]:
-                i += 1
-            j += 1
-        return True if i == len(s) else False
+        if s == '': return True
+        if s == t: return True
+        if S > T: return False
+
+        j = 0
+        for i in range(T):
+            
+            if t[i] == s[j]:
+                j+=1
+
+            if j == S:
+                return True
+            
+        return False
+
+
+
+
+
