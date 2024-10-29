@@ -11,10 +11,11 @@ class Solution:
         for i in range(T):
             
             if t[i] == s[j]:
+                if j == S - 1:
+                    return True    
                 j+=1
 
-            if j == S:
-                return True
+            
             
         return False
 
