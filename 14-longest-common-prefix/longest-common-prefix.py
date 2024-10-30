@@ -2,7 +2,7 @@ class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         num_of_str = len(strs)
 
-        if num_of_str <= 1:
+        if num_of_str == 1:
             return strs[0]
         
         result = []
