@@ -1,10 +1,9 @@
 # from collections import defaultdict
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        # stoneCounter = defaultdict(int)
+        jewelSet = set(jewels)
         counter = 0
         for s in stones:
-            if s in jewels:
-                # stoneCounter[s] += 1
+            if s in jewelSet:
                 counter += 1
         return counter
