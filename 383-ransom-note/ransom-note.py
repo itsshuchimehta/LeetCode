@@ -9,8 +9,11 @@ class Solution:
                 hashMagazine[l] = 1
 
         for letter in ransomNote:
-            if letter in hashMagazine and hashMagazine[letter] > 0:
-                hashMagazine[letter] -= 1
-            else:
+            if letter not in hashMagazine:
                 return False
+            elif hashMagazine[letter] == 1:
+                del hashMagazine[letter]
+            else:
+                hashMagazine[letter] -= 1
+    
         return True     
