@@ -9,11 +9,16 @@ class Solution:
         while l <= r:
             if not s[l].isalnum():
                 l += 1
-            elif not s[r].isalnum():
+                continue
+            
+            if not s[r].isalnum():
                 r -= 1
-            elif s[l].lower() == s[r].lower():
-                l += 1
-                r -= 1
-            else:
+                continue
+
+            if s[l].lower() != s[r].lower():
                 return False
+            
+            l += 1
+            r -= 1
+
         return True
