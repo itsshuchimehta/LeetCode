@@ -1,15 +1,19 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        original = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
-        n = len(original)
-        if n == 0:
+        if len(s) == 1:
             return True
-        return self.helper(original, 0, n)
-    
-    def helper(self, s, i, n):
         
-        if i >= n//2:
-            return True
-        if s[i] != s[n-i-1]:
-            return False
-        return self.helper(s, i+1, n)    
+        l = 0
+        r = len(s) - 1
+
+        while l <= r:
+            if not s[l].isalnum():
+                l += 1
+            elif not s[r].isalnum():
+                r -= 1
+            elif s[l].lower() == s[r].lower():
+                l += 1
+                r -= 1
+            else:
+                return False
+        return True
