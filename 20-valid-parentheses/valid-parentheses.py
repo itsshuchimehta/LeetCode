@@ -15,6 +15,7 @@ class Solution:
                         return False
             else:
                 return False
+        
         if open_br_stack:
             return False        
     
