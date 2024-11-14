@@ -1,24 +1,17 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        if len(s) < 2:
-            return False
-
-        open_br_stack = []   
-        
-        for i in s:
-            if i in ["(", "{", "["]:
-                open_br_stack.append(i)
-            
-            elif open_br_stack and i in [")","]","}"]:
-                    end = open_br_stack.pop()
-                    if (i == ")" and end != "(") or (i == "]" and end != "[") or (i == "}" and end != "{"):
-                        return False
+        hashmap = {']':'[', ')':'(', '}':'{'}
+        open_br_stack = []
+        for c in s:
+            if c not in hashmap:
+                open_br_stack.append(c)
             else:
-                return False
-        
-        if open_br_stack:
-            return False        
-    
-        return True
+                if not open_br_stack:
+                    return False
+                else:
+                    popped = open_br_stack.pop()
+                    if popped != hashmap[c]:
+                        return False
+        return not open_br_stack
             
             
