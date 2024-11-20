@@ -12,10 +12,7 @@ class Solution:
             else:
                 L = mid + 1
             
-        if target > nums[L]:
-            return L + 1
-        else:
-            return L
-
+        return L + 1 if target > nums[L] else L
+        
 
 
