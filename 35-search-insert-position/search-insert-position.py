@@ -12,7 +12,7 @@ class Solution:
             else:
                 L = mid + 1
             
-        if L - R == 0 and target > nums[L]:
+        if target > nums[L]:
             return L + 1
         else:
             return L
