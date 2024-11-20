@@ -2,9 +2,9 @@ class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         L = 1
         R = num
-        
+
         while L <= R:
-            M = (L + R)//2
+            M = L + ((R - L)//2)
             if (M ** 2) == num:
                 return True
             elif (M ** 2) > num:
