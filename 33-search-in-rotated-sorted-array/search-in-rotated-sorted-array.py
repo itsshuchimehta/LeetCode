@@ -1,25 +1,46 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        lo, hi = 0, len(nums) - 1
-        while lo <= hi:
-            mid = (lo + hi) // 2
+        n = len(nums)
+        L = 0
+        R = n - 1
 
-            #Middle value is the target
-            if target == nums[mid]:
-                return mid
-
-            #Left side of the sorted list
-            elif nums[lo] <= nums[mid]:
-                if target > nums[mid] or target < nums[lo]:
-                    lo = mid + 1
-                else:
-                    hi = mid - 1
-
-            #Right side of the sorted list
+        while L < R:
+            mid = L + ((R - L)//2)
+            if nums[mid] > nums[R]:
+                L = mid + 1
             else:
-                if target < nums[mid] or target > nums[hi]:
-                    hi = mid - 1
-                else:
-                    lo = mid + 1
-                    
+                R = mid 
+        
+        min_index = L
+
+        if min_index == 0:
+            L, R = 0, n - 1 
+        elif target >= nums[0] and target <= nums[min_index - 1]:
+                L, R = 0, min_index - 1
+        else:
+            L, R = min_index, n - 1
+
+        while L <= R:
+            mid = L + ((R - L)//2)
+            if nums[mid] == target:
+                return mid
+            elif target > nums[mid]:
+                L = mid + 1
+            else:
+                R = mid - 1
+        
         return -1
+            
+        # while L <= R:
+        #     mid = L + ((R-L) // 2)
+        #     if nums[mid] == target:
+        #         return mid
+        #     elif nums[mid] > nums[R]: 
+        #         if nums[R] > target:
+        #             L = mid
+        #         else:
+        #             L = mid + 1
+        #     else:
+        #         R = mid - 1     
+        
+        # return -1
