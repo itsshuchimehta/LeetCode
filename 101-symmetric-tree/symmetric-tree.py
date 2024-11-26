@@ -33,7 +33,8 @@ class Solution:
             if node1.val != node2.val:
                 return False
             
-            if (node1.left and not node2.right) or (node1.right and not node2.left) or (not node1.left and node2.right) or (not node1.right and  node2.left):
+            # if (node1.left and not node2.right) or (node1.right and not node2.left) or (not node1.left and node2.right) or (not node1.right and  node2.left):
+            if (node1.left is None) != (node2.right is None) or (node1.right is None) != (node2.left is None):
                 return False
 
             if node1.left and node2.right:
