@@ -17,7 +17,7 @@ class Solution:
             
             return same(root1.left, root2.right) and same(root1.right, root2.left)
         
-        return same(root.left, root.right)
+        return same(root, root)
         
 
             
