@@ -29,7 +29,6 @@ class Solution:
                 if node.right:
                     q.append(node.right)
 
-            if len(level) > 0:
-                ans.append(level)
+            ans.append(level)
             
         return ans
