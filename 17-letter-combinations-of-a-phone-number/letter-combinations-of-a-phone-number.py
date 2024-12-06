@@ -20,3 +20,7 @@ class Solution:
             
         backtrack(0)
         return res
+
+        # TC:O(n * 4**n) or O(4**n)
+        # SC:O(N)
+        
