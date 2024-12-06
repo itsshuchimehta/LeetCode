@@ -1,6 +1,6 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        # Using DSF (Recursion)
+        # Using DSF with stack (Iterative)
         if source == destination:
             return True
         
@@ -11,17 +11,17 @@ class Solution:
             graph[v].append(u)
         seen = set()
         seen.add(source)
+        stk = [source]
 
-        def dfs(i):
-            if i == destination:
-                return True
-            for nei_node in graph[i]:
+        while stk:
+            node = stk.pop()
+            for nei_node in graph[node]:
                 if nei_node not in seen:
                     seen.add(nei_node)
-                    if dfs(nei_node):
-                        return True
-            return False
-
-        return dfs(source)
+                    stk.append(nei_node)
+                
+                if nei_node == destination:
+                    return True
+        return False
         # TC: O(V+E)
         # SC: O(V+E)
