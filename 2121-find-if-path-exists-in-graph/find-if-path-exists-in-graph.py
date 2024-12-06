@@ -1,7 +1,7 @@
 from collections import deque
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        # Using BFS with Queue (Iterative)
+        # Using BFS with deque (Iterative)
         if source == destination:
             return True
         
@@ -17,13 +17,14 @@ class Solution:
 
         while q:
             node = q.popleft()
+            if node == destination:
+                return True
             for nei_node in graph[node]:
                 if nei_node not in seen:
                     seen.add(nei_node)
                     q.append(nei_node)
                 
-                if nei_node == destination:
-                    return True
+                
         return False
         # TC: O(V+E)
         # SC: O(V+E)
