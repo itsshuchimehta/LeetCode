@@ -21,3 +21,6 @@ var findClosestNumber = function(nums) {
     return closest;
 
 };
+
+// TC: O(N)
+// SC: O(1)
