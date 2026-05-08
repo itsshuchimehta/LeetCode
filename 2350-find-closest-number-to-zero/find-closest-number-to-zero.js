@@ -2,25 +2,23 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findClosestNumber = function(nums) {
+var findClosestNumber = function (nums) {
     let closest = nums[0];
-    
-
-    for (let i = 0; i < nums.length; i++){
-        // Condition 1: Is it strictly closer to zero?
-        if(Math.abs(nums[i]) < Math.abs(closest)){
+    //Looping through O(N)
+    for (let i = 0; i < nums.length; i++) {
+        if (Math.abs(nums[i]) < Math.abs(closest)) {
             closest = nums[i];
         }
-        // Condition 2: Is it the SAME distance, but a larger number?
-        else if(Math.abs(nums[i]) === Math.abs(closest) && nums[i] > closest){
-            closest = nums[i];
-        }
-   
+    }
+                        //Looping again O(N)
+    if (closest < 0 && nums.includes(Math.abs(closest))) {
+        return Math.abs(closest);
+    }else {
+        return closest;
     }
 
-    return closest;
+    // TC: O(2N) -> O(N)
+    // SC: O(1)
+
 
 };
-
-// TC: O(N)
-// SC: O(1)
