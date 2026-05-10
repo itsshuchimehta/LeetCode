@@ -13,14 +13,16 @@ var mergeAlternately = function(word1, word2) {
         i++;
     }
 
-    if(word1.length !== word2.length){
+    // if(word1.length !== word2.length){
 
-        if(word1.length > word2.length){
-            merged += word1.slice(i)
-        }else{
-            merged += word2.slice(i)
-        }
-    }
+    //     if(word1.length > word2.length){
+    //         merged += word1.slice(i)
+    //     }else{
+    //         merged += word2.slice(i)
+    //     }
+    // }
+    merged += word1.slice(i);
+    merged += word2.slice(i);
 
 
     return merged;
