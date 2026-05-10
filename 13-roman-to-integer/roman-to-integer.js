@@ -26,3 +26,5 @@ var romanToInt = function(s) {
 
     return summ;
 };
+//TC: O(N)
+//SC: O(1)
