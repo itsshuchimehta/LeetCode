@@ -4,14 +4,10 @@
  * @return {boolean}
  */
 var isSubsequence = function(s, t) {
-    if(s.length === 0 && t.length === 0){
+    if(s.length === 0){
         return true;
     }
 
-    if(s.length === 0 && t.length !== 0){
-        return true;
-    }
-    
     let p = 0;
     
 
